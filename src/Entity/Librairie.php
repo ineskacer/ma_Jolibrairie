@@ -18,7 +18,7 @@ class Librairie
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'librairie', targetEntity: Livre::class)]
+    #[ORM\OneToMany(mappedBy: 'librairie', targetEntity: Livre::class, orphanRemoval: true, cascade: ["persist"])]
     private Collection $livres;
 
     public function __construct()
