@@ -22,14 +22,21 @@
 - Initialisation d'Easy Admin
 - Arrêt au guide de réalisation à l'ajout de crud
 
+`1/11`
+- Création de LibrairieCrudController.php
+- Il y a bien quelque chose qui s'affiche quand je vais sur le /admin 
+- Je peux ajouter/modifier/supprimer/consulter des librairies
 
 
 ## A faire
 
-- Charger des données dans les data fixtures
+- Faire Easy Admin
 - Création de l'entité membre
 
 ## Problèmes rencontrés
+
+- Je ne peux pas ajouter avec Easy Admin pour le moment 
+- Est ce que je dois faire des commandes ? 
 
 
 

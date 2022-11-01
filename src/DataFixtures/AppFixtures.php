@@ -7,10 +7,15 @@ use App\Repository\LibrairieRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Livre;
+use App\Entity\Amateur;
+use App\Repository\AmateurRepository;
 use PharIo\Manifest\Library;
 
 class AppFixtures extends Fixture
 {
+
+
+
     /**
      * Generates initialization data for librarie : [description]
      * @return \\Generator
