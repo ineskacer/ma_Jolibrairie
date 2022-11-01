@@ -26,18 +26,21 @@
 - Création de LibrairieCrudController.php
 - Il y a bien quelque chose qui s'affiche quand je vais sur le /admin 
 - Je peux ajouter/modifier/supprimer/consulter des librairies
+- Création de LivreCrudController.php
+- Il n'y a pas encore de liens entre librairie et livre
+- Création de l'entité Amateur [membre]
+- *Livres de Denden est une librairie ajoutée via Easy Admin et non via App Fixtures'
+
 
 
 ## A faire
 
-- Faire Easy Admin
-- Création de l'entité membre
+- Ajout de données de tests dans App Fixtures pour l'entité membre
 
 ## Problèmes rencontrés
 
-- Je ne peux pas ajouter avec Easy Admin pour le moment 
-- Est ce que je dois faire des commandes ? 
-
+- Lors du chargement de données de tests pour amateur : problème lors de fixtures load -n "warning: undefined array key 2"
+- J'ai supprimé le code de app fixtures où j'ai tenté de rajouté des données pour amateurs : on réessaye plus tard
 
 
 ## Commandes pratiques
