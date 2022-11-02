@@ -31,11 +31,20 @@
 - Création de l'entité Amateur [membre]
 - *Livres de Denden est une librairie ajoutée via Easy Admin et non via App Fixtures'
 
-
+`2/11`
+- Recréation de l'entité Amateur => correction de la proprité *nullable* de ***description***
+- Ajout des données pour l'entité Amateur dans data fixtures ET CA MARCHE ENFIN PUREE
+- Ajout d'un controller pour librairie
+- La page / est consultable : on y voit la liste des librairies
+- Les pages /librairies/{id} sont consultables
+- Le bouton retour est opérationnel
+- Ajout de la liste des films pour chaque librairie dans Easy Admin
+- Ajout d'un controller crud pour Amateur dans Easy Admin
+- Ajout d'un lien avec AssociationField() entre Amateur et Librairie
 
 ## A faire
 
-- Ajout de données de tests dans App Fixtures pour l'entité membre
+
 
 ## Problèmes rencontrés
 
@@ -86,4 +95,12 @@ symfony console dbal:run-sql 'SELECT * FROM film'
 ```
 ```
 symfony console dbal:run-sql 'SELECT * FROM recommendation where film_id=2'
+```
+- *Pour consulter les routes*
+``` 
+symfony console debug:route
+```
+- *Ajouter un controller CRUD*
+```
+symfony console make:admin:crud
 ```

@@ -31,6 +31,7 @@ class AppFixtures extends Fixture
     private static function librairiesDataGenerator()
     {
         yield ["Mes livres préférés", "Nesi", "Etudiante"];
+        yield ["A lire un jour de pluie", "Nesi", "Etudiante"];
 
     }
 
@@ -44,6 +45,7 @@ class AppFixtures extends Fixture
         yield ["Harry Potter à l'école des sorciers", 1997, "Mes livres préférés"];
         yield ["Harry Potter et la chambre des secrets", 1998, "Mes livres préférés"];
         yield ["Harry Potter et la coupe de feu", 2000, "Mes livres préférés"];
+        yield ["Bel Ami", 1885, "A lire un jour de pluie"];
      
     }
 
