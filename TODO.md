@@ -48,8 +48,8 @@
 
 ## Problèmes rencontrés
 
-- Lors du chargement de données de tests pour amateur : problème lors de fixtures load -n "warning: undefined array key 2"
-- J'ai supprimé le code de app fixtures où j'ai tenté de rajouté des données pour amateurs : on réessaye plus tard
+**Ajout des gabarits dans la page**
+- Je n'ai rien dans templates/admin, je n'ai même pas de /admin à vrai dire
 
 
 ## Commandes pratiques
