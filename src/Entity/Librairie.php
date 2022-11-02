@@ -21,7 +21,7 @@ class Librairie
     #[ORM\OneToMany(mappedBy: 'librairie', targetEntity: Livre::class, orphanRemoval: true, cascade: ["persist"])]
     private Collection $livres;
 
-    #[ORM\ManyToOne(inversedBy: 'librairies')]
+    #[ORM\ManyToOne(inversedBy: 'librairie')]
     private ?Amateur $amateur = null;
 
     public function __construct()
@@ -87,4 +87,5 @@ class Librairie
 
         return $this;
     }
+
 }

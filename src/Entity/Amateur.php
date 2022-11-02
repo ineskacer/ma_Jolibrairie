@@ -18,15 +18,15 @@ class Amateur
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
     #[ORM\OneToMany(mappedBy: 'amateur', targetEntity: Librairie::class)]
-    private Collection $librairies;
+    private Collection $librairie;
 
     public function __construct()
     {
-        $this->librairies = new ArrayCollection();
+        $this->librairie = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,7 +51,7 @@ class Amateur
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -61,27 +61,27 @@ class Amateur
     /**
      * @return Collection<int, Librairie>
      */
-    public function getLibrairies(): Collection
+    public function getLibrairie(): Collection
     {
-        return $this->librairies;
+        return $this->librairie;
     }
 
-    public function addLibrairy(Librairie $librairy): self
+    public function addLibrairie(Librairie $librairie): self
     {
-        if (!$this->librairies->contains($librairy)) {
-            $this->librairies->add($librairy);
-            $librairy->setAmateur($this);
+        if (!$this->librairie->contains($librairie)) {
+            $this->librairie->add($librairie);
+            $librairie->setAmateur($this);
         }
 
         return $this;
     }
 
-    public function removeLibrairy(Librairie $librairy): self
+    public function removeLibrairie(Librairie $librairie): self
     {
-        if ($this->librairies->removeElement($librairy)) {
+        if ($this->librairie->removeElement($librairie)) {
             // set the owning side to null (unless already changed)
-            if ($librairy->getAmateur() === $this) {
-                $librairy->setAmateur(null);
+            if ($librairie->getAmateur() === $this) {
+                $librairie->setAmateur(null);
             }
         }
 
