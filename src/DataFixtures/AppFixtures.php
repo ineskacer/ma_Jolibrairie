@@ -2,27 +2,35 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Amateur;
 use App\Entity\Librairie;
 use App\Repository\LibrairieRepository;
+use App\Repository\AmateurRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Livre;
-use App\Entity\Amateur;
-use App\Repository\AmateurRepository;
 use PharIo\Manifest\Library;
 
 class AppFixtures extends Fixture
 {
 
+    /**
+     * Generates initialization data for amateur [nom, description]
+     * @return \\Generator
+     */
 
+     private static function amateursDataGenerator()
+     {
+        yield["Nesi", "Etudiante"];
+     }
 
     /**
-     * Generates initialization data for librarie : [description]
+     * Generates initialization data for librarie : [description, amateur_nom, amateur_description]
      * @return \\Generator
      */
     private static function librairiesDataGenerator()
     {
-        yield ["Mes livres préférés"];
+        yield ["Mes livres préférés", "Nesi", "Etudiante"];
 
     }
 
@@ -41,12 +49,25 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $amateurRepo = $manager->getRepository(Amateur::class);
+
+        foreach (self::amateursDataGenerator() as [$amateur_nom, $amateur_description]) {
+            $amateur = new Amateur();
+            $amateur->setNom($amateur_nom);
+            $amateur->setDescription($amateur_description);
+            $manager->persist($amateur);
+        }
+        $manager->flush();
+
+
         $librairieRepo = $manager->getRepository(Librairie::class);
 
-        foreach (self::librairiesDataGenerator() as [$description] ) {
+        foreach (self::librairiesDataGenerator() as [$description, $amateur_nom, $amateur_description] ) {
+            $amateur = $amateurRepo->findOneBy(['nom' => $amateur_nom, 'description' => $amateur_description]);
             $librairie = new Librairie();
             $librairie->setDescription($description);
-            $manager->persist($librairie);          
+            $amateur->addLibrairie($librairie);
+            $manager->persist($amateur);          
         }
         $manager->flush();
 

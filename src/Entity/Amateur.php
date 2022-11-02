@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AmateurRepository::class)]
 class Amateur
+
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,7 +22,7 @@ class Amateur
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'amateur', targetEntity: Librairie::class)]
+    #[ORM\OneToMany(mappedBy: 'amateur', targetEntity: Librairie::class, orphanRemoval: true, cascade: ["persist"])]
     private Collection $librairie;
 
     public function __construct()
