@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LibrairieController!{% endblock %}
+{% block title %}Bienvenu dans <strong>mon monde</strong> !{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h1>Index de mes Jolibrairies</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Todo</th>
+            <th> &nbsp;</th>
+        </tr>
+    </thead>
+  {% for librairie in librairies %}
+      <tbody>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <tr>
+            <td>{{ librairie.Id }}</td>
+            <td>{{ librairie.description }}</td>
+            <td><a href="{{ path('librairie_show', {'id': librairie.id}) }}"><i>consulter</i></a></td>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/ines/CSC4101/projet/ma_Jolibrairie/src/Controller/LibrairieController.php'|file_link(0) }}">src/Controller/LibrairieController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/ines/CSC4101/projet/ma_Jolibrairie/templates/librairie/index.html.twig'|file_link(0) }}">templates/librairie/index.html.twig</a></code></li>
-    </ul>
-</div>
+        </tr>
+    </tbody>
+  {% endfor %} 
+  </table>
+
 {% endblock %}

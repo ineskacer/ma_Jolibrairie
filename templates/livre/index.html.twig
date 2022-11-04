@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue dans mon index de livres !{% endblock %}
+
+{% block body %}
+<h1>Bienvenue dans mon index de livres</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th> &nbsp;</th>
+        </tr>
+    </thead>
+  {% for livre in livres %}
+      <tbody>
+
+        <tr>
+            <td>{{ livre.Id }}</td>
+            <td>{{ livre.titre }}</td>
+            <td><a href="{{ path('livre_show', {'id': livre.id}) }}"><i>consulter</i></a></td>
+            
+
+        </tr>
+    </tbody>
+  {% endfor %} 
+  </table>
+
+  <a href="{{ path('librairies_list') }}">Retour à l'index des Jolibraires</a>
+
+{% endblock %}

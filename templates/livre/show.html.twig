@@ -1,0 +1,24 @@
+ {% extends 'base.html.twig' %}
+
+  {% block body %}
+      <h1> {{livre.titre}}</h1>
+
+         {% dump livre %}
+
+      <table class="table">
+          <tbody>
+              <tr>
+                  <th>Id</th>
+                   <td>{{ livre.id }}</td>
+              </tr>
+              <tr>
+                  <th>Titre</th>
+                  <td>{{ livre.titre }}</td>
+              </tr>
+          </tbody>
+      </table>
+
+      <a href="javascript:history.go(-1)">Retour</a>
+      
+
+  {% endblock %}

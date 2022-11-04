@@ -50,6 +50,8 @@
 
 **Ajout des gabarits dans la page**
 - Je n'ai rien dans templates/admin, je n'ai même pas de /admin à vrai dire
+- Je n'arrive pas à afficher annee_de_parution dans une page de consultation
+
 
 
 ## Commandes pratiques
@@ -103,4 +105,8 @@ symfony console debug:route
 - *Ajouter un controller CRUD*
 ```
 symfony console make:admin:crud
+```
+- *Pour ajouter un controller*
+```
+symfony console make:controller [Inventaire]Controller
 ```
