@@ -1,0 +1,19 @@
+{# source: https://stackoverflow.com/a/65082524/1814910 #}
+  <ul>
+{% for librairies in field.value %}
+  {%- set url = ea_url()
+    .setController('App\\Controller\\Admin\\LibrairieCrudController')
+    .setAction('detail')
+    .setEntityId(librairies.id)
+  -%}
+  <li>
+  	<a href="{{ url }}">
+        {{ librairies }}
+  	</a>
+  </li>
+{% else %}
+</ul>  
+  <span class="badge badge-secondary">None</span>
+  <ul>
+{% endfor %}
+  </ul>

@@ -23,15 +23,14 @@ class LibrairieCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            // Id shouldn't be modified
-            IdField::new('id')->hideOnForm(),
-            // Completed will be rendered as a toggle only in edit
-            // Title will be rendered so as to include a link, and be striked whenever completed
-            TextField::new('description'),
-            AssociationField::new('livres')
+          return [
+              IdField::new('id')->hideOnForm(),
+              TextField::new('description'),
+              AssociationField::new('livres')
+                  ->onlyOnDetail()
+                  ->setTemplatePath('admin/fields/librairie_livres.html.twig')
 
-        ];
+          ];
     }
     
     public function configureActions(Actions $actions): Actions
@@ -48,6 +47,6 @@ class LibrairieCrudController extends AbstractCrudController
         return $crud
             
         ;
-    }
+    }   
 
 }

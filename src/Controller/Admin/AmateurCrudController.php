@@ -29,8 +29,10 @@ class AmateurCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('description'),
             AssociationField::new('librairie')
-
-        ];
+                    ->onlyOnDetail()
+                    ->setTemplatePath('admin/fields/amateur_librairies.html.twig')
+  
+            ];
     }
     
     public function configureActions(Actions $actions): Actions

@@ -42,6 +42,14 @@
 - Ajout d'un controller crud pour Amateur dans Easy Admin
 - Ajout d'un lien avec AssociationField() entre Amateur et Librairie
 
+`3/11`
+- Création de LivreController.php
+- On peut consulter les livres d'une librairie
+
+`7/11`
+- Ajout de la liste des entités liés dans la page de détails 
+- Intégration de Bootstrap dans mes templates
+
 ## A faire
 
 
