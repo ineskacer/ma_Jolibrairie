@@ -1,0 +1,13 @@
+bootstrap_menu:
+  menus:
+    main:
+      items:
+        amateurs:
+          label: 'Amateurs'
+          route: 'amateurs_list'
+        librairies:
+          label: 'Jolibrairies'
+          route: 'librairies_list'
+        livres:
+          label: 'Livres'
+          route: 'livres_list'

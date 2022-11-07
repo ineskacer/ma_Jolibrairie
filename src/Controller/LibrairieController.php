@@ -11,11 +11,20 @@ use PharIo\Manifest\Library;
 
 class LibrairieController extends AbstractController
 {
-    #[Route('/', name: 'app_librairie')]
+
+    /**
+ * @Route("/", name = "home", methods="GET")
+ */
+    public function indexAction()
+    {
+        return $this->render('index.html.twig',
+            [ 'welcome' => "J'espère que vous y trouverez votre nouveau bouquin préféré !" ]
+        );
+    }
 
     /**
      * Lists all librairies entities.
-     * @Route("/", name="librairies_list", methods="GET")
+     * @Route("/librairies", name="librairies_list", methods="GET")
      */
     public function list(ManagerRegistry $doctrine)
     {

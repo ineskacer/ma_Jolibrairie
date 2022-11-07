@@ -12,7 +12,6 @@ use PharIo\Manifest\Library;
 
 class LivreController extends AbstractController
 {
-    #[Route('/livres', name: 'app_livre')]
     /**
      * Show livres from librairie
      * 

@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Todo</th>
+            <th>Description</th>
             <th> &nbsp;</th>
         </tr>
     </thead>
@@ -18,11 +18,11 @@
         <tr>
             <td>{{ librairie.Id }}</td>
             <td>{{ librairie.description }}</td>
-            <td><a href="{{ path('librairie_show', {'id': librairie.id}) }}"><i>consulter</i></a></td>
+            <td><a href="{{ path('librairie_show', {'id': librairie.id}) }}">consulter</a></td>
 
         </tr>
     </tbody>
   {% endfor %} 
   </table>
-
+<a href="{{ path('home') }}">Retour</a>
 {% endblock %}

@@ -1,35 +1,35 @@
  {% extends 'base.html.twig' %}
 
   {% block body %}
-      <h1> Jolibrairie n° {{ librairie.id }} </h1>
+      <h1> {{ amateur.nom }} </h1>
 
-         {% dump librairie %}
+         {% dump amateur %}
 
       <table class="table">
           <tbody>
               <tr>
                   <th>Id</th>
-                   <td>{{ librairie.id }}</td>
+                   <td>{{ amateur.id }}</td>
               </tr>
               <tr>
                   <th>Description</th>
-                  <td>{{ librairie.description }}</td>
+                  <td>{{ amateur.description }}</td>
               </tr>
               <tr>
-              <th>Livres </th>
-              {% for livre in librairie.livres %}
+              <th>Jolibraires</th>
+              {% for librairie in amateur.librairie %}
               <table class="table">
               <thead>
               </thead>
                     <tr>
-                        <th>Titre</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td> {{livre.titre}}</td>
+                    <td> {{librairie.description}}</td>
                 </tr>
-                <td><a href="{{ path('livre_show', {'id': livre.id}) }}">consulter</a></td>
+                <td><a href="{{ path('librairie_show', {'id': librairie.id}) }}">consulter</a></td>
                 </tbody>
               </table>
               {% endfor %}
@@ -37,6 +37,6 @@
           </tbody>
       </table>
 
-      <a href="javascript:history.go(-1)">Retour</a>
+      <a href="{{ path('amateurs_list') }}">Retour</a>
 
   {% endblock %}

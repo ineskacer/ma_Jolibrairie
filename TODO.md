@@ -49,6 +49,8 @@
 `7/11`
 - Ajout de la liste des entités liés dans la page de détails 
 - Intégration de Bootstrap dans mes templates
+- Ajout d'un controller pour amateur
+- Bootstrap pour amateur
 
 ## A faire
 

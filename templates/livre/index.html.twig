@@ -18,7 +18,7 @@
         <tr>
             <td>{{ livre.Id }}</td>
             <td>{{ livre.titre }}</td>
-            <td><a href="{{ path('livre_show', {'id': livre.id}) }}"><i>consulter</i></a></td>
+            <td><a href="{{ path('livre_show', {'id': livre.id}) }}">consulter</a></td>
             
 
         </tr>
@@ -26,6 +26,6 @@
   {% endfor %} 
   </table>
 
-  <a href="{{ path('librairies_list') }}">Retour à l'index des Jolibraires</a>
+  <a href="{{ path('home') }}">Retour</a>
 
 {% endblock %}
