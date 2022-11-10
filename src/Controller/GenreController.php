@@ -26,7 +26,24 @@ class GenreController extends AbstractController
         return $this->render('genre/index.html.twig',
             [ 'genres' => $genres ]
             );
-    }  
+    } 
+    
+        /**
+     * Show a genre
+     * 
+     * @Route("/genre/{id}", name="genre_show", requirements={"id"="\d+"})
+     *    note that the id must be an integer, above
+     *    
+     * @param Integer $id
+     */
+
+    public function show(Genre $genre): Response
+    {
+        return $this->render('genre/show.html.twig',
+        [ 'genre' => $genre ]
+        );
+    }
+
 
 
 }

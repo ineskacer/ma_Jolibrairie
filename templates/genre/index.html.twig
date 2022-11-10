@@ -10,6 +10,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Intitulé</th>
+				<th> &nbsp;</th>
 			</tr>
 		</thead>
         <tbody>
@@ -19,6 +20,7 @@
 				<tr>
 					<td>{{ genre.Id }}</td>
 					<td>{{ genre.intitule }}</td>
+					<td><a href="{{ path('genre_show', {'id': genre.id}) }}">consulter</a></td>
 				</tr>
 			
 		{% endfor %}

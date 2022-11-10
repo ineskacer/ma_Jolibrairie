@@ -8,6 +8,9 @@ bootstrap_menu:
         librairies:
           label: 'Jolibrairies'
           route: 'librairies_list'
+        genres:
+          label: 'Genres'
+          route: 'genres_list'
         livres:
           label: 'Livres'
           route: 'livres_list'

@@ -1,30 +1,46 @@
- {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-  {% block body %}
-      <h1> {{livre.titre}}</h1>
+{% block body %}
+	<h1>
+		{{livre.titre}}</h1>
 
-         {% dump livre %}
 
-      <table class="table">
-          <tbody>
-              <tr>
-                  <th>Id</th>
-                   <td>{{ livre.id }}</td>
-              </tr>
-              <tr>
-                  <th>Titre</th>
-                  <td>{{ livre.titre }}</td>
-              </tr>
-             <tr>
-                <th> Date </th>
-                <td>{{ livre.anneeDeParution }}</td>
-              </tr>
+	{% dump livre %}
 
-                
-          </tbody>
-      </table>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ livre.id }}</td>
+			</tr>
+			<tr>
+				<th>Jolibraire</th>
+				<td>
+					<a href="{{ path('librairie_show', {'id': livre.librairie.id}) }}">{{ livre.librairie.description}}</a>
+				</td>
+			</tr>
+			<tr>
+				<th>Titre</th>
+				<td>{{ livre.titre }}</td>
+			</tr>
+			<tr>
+				<th>
+					Date
+				</th>
+				<td>{{ livre.anneeDeParution }}</td>
+			</tr>
+			<tr>
+				<th>
+					Genre
+				</th>
+				<td>
+					<a href="{{ path('genre_show', {'id': livre.genre.id}) }}">{{ livre.genre.intitule }}</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 
-      <a href="javascript:history.go(-1)">Retour</a>
-      
+	<a href="javascript:history.go(-1)">Retour</a>
 
-  {% endblock %}
+
+{% endblock %}

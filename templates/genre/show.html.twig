@@ -2,25 +2,21 @@
 
 {% block body %}
 	<h1>
-		Jolibrairie n°
-		{{ librairie.id }}
+		Genre
+		{{ genre.intitule }}
 	</h1>
 
-	{% dump librairie %}
+	{% dump genre %}
 
 	<table class="table">
 		<tbody>
 			<tr>
 				<th>Id</th>
-				<td>{{ librairie.id }}</td>
+				<td>{{ genre.id }}</td>
 			</tr>
 			<tr>
-				<th>Description</th>
-				<td>{{ librairie.description }}</td>
-			</tr>
-			<tr>
-			<th> Amateur </th>
-			<td> <a href="{{ path('amateur_show', {'id': librairie.amateur.id}) }}">{{librairie.amateur.nom}}</a> </td>
+				<th>Intitulé</th>
+				<td>{{ genre.intitule }}</td>
 			</tr>
 			<tr>
 				<table class="table">
@@ -40,7 +36,7 @@
 					Action
 				</th>
 			</tr>
-			{% for livre in librairie.livres %}
+			{% for livre in genre.livre %}
 
 				<tr>
 					<td>

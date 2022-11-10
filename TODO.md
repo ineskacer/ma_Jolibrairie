@@ -61,9 +61,9 @@
 
 ## A faire
 
-
-
 ## Problèmes rencontrés
+
+- Comment récupérer le genre de mon livre pour l'afficher dans livre_show ? 
 
 **Ajout des gabarits dans la page**
 - Je n'ai rien dans templates/admin, je n'ai même pas de /admin à vrai dire
