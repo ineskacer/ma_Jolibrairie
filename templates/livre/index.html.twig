@@ -12,8 +12,9 @@
             <th> &nbsp;</th>
         </tr>
     </thead>
+    <tbody>
   {% for livre in livres %}
-      <tbody>
+      
 
         <tr>
             <td>{{ livre.Id }}</td>
@@ -22,8 +23,9 @@
             
 
         </tr>
-    </tbody>
+    
   {% endfor %} 
+  </tbody>
   </table>
 
   <a href="{{ path('home') }}">Retour</a>

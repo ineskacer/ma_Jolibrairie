@@ -12,8 +12,9 @@
             <th> &nbsp;</th>
         </tr>
     </thead>
+    <tbody>
   {% for librairie in librairies %}
-      <tbody>
+      
 
         <tr>
             <td>{{ librairie.Id }}</td>
@@ -21,8 +22,9 @@
             <td><a href="{{ path('librairie_show', {'id': librairie.id}) }}">consulter</a></td>
 
         </tr>
-    </tbody>
+    
   {% endfor %} 
+  </tbody>
   </table>
 <a href="{{ path('home') }}">Retour</a>
 {% endblock %}

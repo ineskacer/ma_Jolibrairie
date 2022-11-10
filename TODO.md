@@ -2,7 +2,8 @@
 
 ## Apprentissage PHP
 
-- J'en suis au TP6 que j'ai fini
+- J'ai fais le TP7
+- Je vais sauter le TP8 pour le moment
 
 ## Suivi du projet
 
@@ -51,6 +52,12 @@
 - Intégration de Bootstrap dans mes templates
 - Ajout d'un controller pour amateur
 - Bootstrap pour amateur
+
+`10/11`
+- Ajout de l'entité genre en OneToMany avec livre et en ManyToOne avec amateur
+- Modification de l'affichage de librairie_show et de amateur_show => plus joli maintenant
+- Ajout d'un footer et changement de couleur du footer
+
 
 ## A faire
 

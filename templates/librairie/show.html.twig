@@ -1,42 +1,52 @@
- {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-  {% block body %}
-      <h1> Jolibrairie n° {{ librairie.id }} </h1>
+{% block body %}
+	<h1>
+		Jolibrairie n°
+		{{ librairie.id }}
+	</h1>
 
-         {% dump librairie %}
+	{% dump librairie %}
 
-      <table class="table">
-          <tbody>
-              <tr>
-                  <th>Id</th>
-                   <td>{{ librairie.id }}</td>
-              </tr>
-              <tr>
-                  <th>Description</th>
-                  <td>{{ librairie.description }}</td>
-              </tr>
-              <tr>
-              <th>Livres </th>
-              {% for livre in librairie.livres %}
-              <table class="table">
-              <thead>
-              </thead>
-                    <tr>
-                        <th>Titre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td> {{livre.titre}}</td>
-                </tr>
-                <td><a href="{{ path('livre_show', {'id': livre.id}) }}">consulter</a></td>
-                </tbody>
-              </table>
-              {% endfor %}
-              </tr>
-          </tbody>
-      </table>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ librairie.id }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ librairie.description }}</td>
+			</tr>
+			<tr>
+				<table class="table">
+					<thead></thead>
+					<tr>
+						<th>Livres</th>
+					</tr>
+				</thead>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th>
+					Titre
+				</th>
+				<th>
+					Action
+				</th>
+			</tr>
+			{% for livre in librairie.livres %}
 
-      <a href="javascript:history.go(-1)">Retour</a>
+				<tr>
+					<td>
+						{{livre.titre}}</td>
+					<td>
+						<a href="{{ path('livre_show', {'id': livre.id}) }}">consulter</a>
+					</td>
+				</tr>
 
-  {% endblock %}
+			{% endfor %}
+		</tbody>
+	</table>
+</tr></tbody></table><a href="javascript:history.go(-1)">Retour</a>{% endblock %}

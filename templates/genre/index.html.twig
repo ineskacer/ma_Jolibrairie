@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genres
+{% endblock %}
+
+{% block body %}
+	<h1>Genres</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Intitulé</th>
+			</tr>
+		</thead>
+        <tbody>
+		{% for genre in genres %}
+			
+
+				<tr>
+					<td>{{ genre.Id }}</td>
+					<td>{{ genre.intitule }}</td>
+				</tr>
+			
+		{% endfor %}
+        </tbody>
+	</table>
+	<a href="{{ path('home') }}">Retour</a>
+{% endblock %}

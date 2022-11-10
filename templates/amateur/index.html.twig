@@ -1,28 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue!{% endblock %}
+{% block title %}Bienvenue!
+{% endblock %}
 
 {% block body %}
 <h1>Index des amateurs</h1>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th> &nbsp;</th>
-        </tr>
-    </thead>
-  {% for amateur in amateurs %}
-      <tbody>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nom</th>
+			<th>
+				&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for amateur in amateurs %}
 
-        <tr>
-            <td>{{ amateur.Id }}</td>
-            <td>{{ amateur.nom }}</td>
-            <td><td><a href="{{ path('amateur_show', {'id': amateur.id}) }}">Découvre en plus !</a></td></td>
-        </tr>
-    </tbody>
-  {% endfor %} 
-  </table>
-  <a href="{{ path('home') }}">Retour</a>
 
-{% endblock %}
+			<tr>
+				<td>{{ amateur.Id }}</td>
+				<td>{{ amateur.nom }}</td>
+				<td></td>
+				<td>
+					<a href="{{ path('amateur_show', {'id': amateur.id}) }}">Découvre en plus !</a>
+				</td>
+			</tr>
+		</td>
+	</tbody>
+</tr>{% endfor %}</tbody></table><a href="{{ path('home') }}">Retour</a>{% endblock %}
