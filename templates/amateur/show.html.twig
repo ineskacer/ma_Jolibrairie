@@ -5,7 +5,7 @@
 		{{ amateur.nom }}
 	</h1>
 
-	{% dump amateur %}
+	{% dump amateur.etalages %}
 
 	<table class="table">
 		<tbody>
@@ -42,7 +42,16 @@
 					</td>
 				</tr>
 			{% endfor %}
-
 		</tbody>
-	</tbody>
-</table></tbody></table></tr></tbody></table><button class="w3-btn"><a href="{{ path('amateurs_list') }}">Retour</a></button>{% endblock %}
+	</thead>
+	<tr>
+		<th>Etalages</th>
+		<td>
+			<a href="{{ path('app_etalage_new', {'id': amateur.id}) }}">Ajouter un nouvel étalage</a>
+		</td>
+	</tr>
+</tbody></thead></tr></tbody><tbody><tr><th>
+Description</th></tr>{% for etalage in amateur.etalages %}<tr>
+<td>
+	<a href="{{ path('app_etalage_show', {'id': etalage.id}) }}">{{ etalage }}</a>
+</td></tr>{% endfor %}</tbody></tbody></table></tbody></table></tr></tbody> </table> <button class="w3-btn"><a href="{{ path('amateurs_list') }}">Retour</a> </button>{% endblock %}

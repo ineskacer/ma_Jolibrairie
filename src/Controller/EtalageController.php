@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Amateur;
 use App\Entity\Etalage;
 use App\Form\EtalageType;
 use App\Repository\EtalageRepository;
@@ -19,14 +20,15 @@ class EtalageController extends AbstractController
     public function index(EtalageRepository $etalageRepository): Response
     {
         return $this->render('etalage/index.html.twig', [
-            'etalages' => $etalageRepository->findAll(),
+            'etalages' => $etalageRepository->findBy(['publie'=> true]),
         ]);
     }
 
-    #[Route('/new', name: 'app_etalage_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EtalageRepository $etalageRepository): Response
+    #[Route('etalage/new/{id}', name: 'app_etalage_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EtalageRepository $etalageRepository, Amateur $amateur): Response
     {
         $etalage = new Etalage();
+        $etalage->setAmateur($amateur);
         $form = $this->createForm(EtalageType::class, $etalage);
         $form->handleRequest($request);
 

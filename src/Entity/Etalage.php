@@ -96,4 +96,13 @@ class Etalage
 
         return $this;
     }
+
+
+    public function __toString()
+    {
+        
+        return $this-> description;
+
+    }
+
 }

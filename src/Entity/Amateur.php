@@ -36,7 +36,6 @@ class Amateur
     {
         $this->librairie = new ArrayCollection();
         $this->genres = new ArrayCollection();
-        $this->étalages = new ArrayCollection();
         $this->etalages = new ArrayCollection();
     }
 
@@ -129,35 +128,6 @@ class Amateur
         return $this;
     }
 
-    /**
-     * @return Collection<int, Etalage>
-     */
-    public function getétalages(): Collection
-    {
-        return $this->étalages;
-    }
-
-    public function addTalage(Etalage $talage): self
-    {
-        if (!$this->étalages->contains($talage)) {
-            $this->étalages->add($talage);
-            $talage->setAmateur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTalage(Etalage $talage): self
-    {
-        if ($this->étalages->removeElement($talage)) {
-            // set the owning side to null (unless already changed)
-            if ($talage->getAmateur() === $this) {
-                $talage->setAmateur(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Etalage>
