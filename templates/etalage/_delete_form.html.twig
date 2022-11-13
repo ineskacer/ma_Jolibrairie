@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_etalage_delete', {'id': etalage.id}) }}" onsubmit="return confirm('Voulez-vous vraiment supprimer cet étalage ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ etalage.id) }}">
+    <button class="w3-btn">Supprimer</button>
+</form>

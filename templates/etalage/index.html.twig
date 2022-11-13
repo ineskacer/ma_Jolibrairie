@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etalage index{% endblock %}
+
+{% block body %}
+    <h1>Etalage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Publié</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etalage in etalages %}
+            <tr>
+                <td>{{ etalage.id }}</td>
+                <td>{{ etalage.description }}</td>
+                <td>{{ etalage.publie ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a href="{{ path('app_etalage_show', {'id': etalage.id}) }}">Consulter</a>
+                    <a href="{{ path('app_etalage_edit', {'id': etalage.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="w3-btn"><a href="{{ path('app_etalage_new') }}">Nouvel étalage</a></button>
+{% endblock %}

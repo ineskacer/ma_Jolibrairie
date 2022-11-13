@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LivreRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LivreRepository::class)]
@@ -25,6 +27,16 @@ class Livre
 
     #[ORM\ManyToOne(inversedBy: 'livre')]
     private ?Genre $genre = null;
+
+    #[ORM\ManyToMany(targetEntity: Etalage::class, mappedBy: 'livres', cascade: ["persist"])]
+    private Collection $etalages;
+
+    public function __construct()
+    {
+        $this->etalages = new ArrayCollection();
+    }
+
+
 
 
     public function getId(): ?int
@@ -87,4 +99,33 @@ class Livre
         return $this;
     }
 
+    /**
+     * @return Collection<int, Etalage>
+     */
+    public function getEtalages(): Collection
+    {
+        return $this->etalages;
+    }
+
+    public function addEtalage(Etalage $etalage): self
+    {
+        if (!$this->etalages->contains($etalage)) {
+            $this->etalages->add($etalage);
+            $etalage->addLivre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEtalage(Etalage $etalage): self
+    {
+        if ($this->etalages->removeElement($etalage)) {
+            $etalage->removeLivre($this);
+        }
+
+        return $this;
+    }
+
+
+  
 }

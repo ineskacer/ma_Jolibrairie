@@ -57,19 +57,36 @@
 - Ajout de l'entité genre en OneToMany avec livre et en ManyToOne avec amateur
 - Modification de l'affichage de librairie_show et de amateur_show => plus joli maintenant
 - Ajout d'un footer et changement de couleur du footer
+- Ajout de show et index pour genre
+- On peut aller d'un genre aux livres du genre
 
+`11/10` 
+- Ajout de l'entité Etalage
+- Ajout d'un controller crud pour Etalage
+- Migrations
+- Ajout des messages flash
+- Ajout de la balise button pour plusieurs liens pour faire plus joli
+
+`12/10`
+- Ajout de crud pour livre
+- Ajout de crud pour librairie
+
+`13/10`
+- Ajout de crud pour Genre
+- Ajout de la relation Amatateur -> Librairie -> Livre pour les ajouts
 
 ## A faire
 
+
+
 ## Problèmes rencontrés
 
-- Comment récupérer le genre de mon livre pour l'afficher dans livre_show ? 
+- Je n'arrive pas à ajouter plusieurs livres dans ma galerie
 
-**Ajout des gabarits dans la page**
-- Je n'ai rien dans templates/admin, je n'ai même pas de /admin à vrai dire
-- Je n'arrive pas à afficher annee_de_parution dans une page de consultation
+## Notes à moi-même
 
-
+- Je ne peux pas ajouter des livres dans ma librairie car mes livres sont en relations ManyToOne avec mes librairies donc il faut que je créer un livre pour l'ajouter.
+- Pour ajouter des livres dans une librairie, ça se fait lors de la création du livre. 
 
 ## Commandes pratiques
 

@@ -37,19 +37,45 @@
 			</nav>
 		{% endblock %}
 		{# menu #}
-		{% block body %}{% endblock %}
+		{% block main %}
+			<div class="container body-container">
 
-		<!-- /.body-container -->
+				{% block alerts %}
+					{% for type, messages in app.session.flashBag.all %}
+						{% for message in messages %}
+							{%if type == 'error'%}
+								{% set type = 'danger' %}
+								{%endif%}
+								{%if type == 'message'%}
+									{% set type = 'info' %}
+									{%endif%}
+									{# Bootstrap alert, see http://getbootstrap.com/components/#alerts #}
+									<div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+										<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+											<span class="sr-only">Fermer</span>
+										</button>
+										<p>{{ message|raw }}</p>
+									</div>
+								{% endfor %}
+							{% endfor %}
+						{% endblock %}
+						{# alerts #}
+					{% endblock %}
+					{% block body %}{% endblock %}
 
-		{% block footer %}
-			<footer class="text-center text-lg-start bg-light text-muted">
-				<div class="text-center p-4" style="background-color: rgba(255, 182, 193, 0.2);">
-					Application développée par Inès KACER dans le cadre d'un projet informatique à Télécom SudParis
-				</div>
-			</footer>
-		{% endblock %}
-		{# footer #}
 
-		{# endblock body #}
-	</body>
-</html>
+					<!-- /.body-container -->
+
+					{% block footer %}
+						<footer class="text-center text-lg-start bg-light text-muted">
+							<div class="text-center p-4" style="background-color: rgba(255, 182, 193, 0.2);">
+								Application développée par Inès KACER dans le cadre d'un projet informatique à Télécom SudParis
+							</div>
+						</footer>
+					{% endblock %}
+					{# footer #}
+
+					{# endblock body #}
+				</body>
+			</html>

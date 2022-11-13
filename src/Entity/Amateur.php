@@ -28,11 +28,16 @@ class Amateur
     #[ORM\OneToMany(mappedBy: 'amateur', targetEntity: Genre::class, orphanRemoval: true, cascade: ["persist"])]
     private Collection $genres;
 
+    #[ORM\OneToMany(mappedBy: 'amateur', targetEntity: Etalage::class, cascade: ["persist"])]
+    private Collection $etalages;
+
 
     public function __construct()
     {
         $this->librairie = new ArrayCollection();
         $this->genres = new ArrayCollection();
+        $this->étalages = new ArrayCollection();
+        $this->etalages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -122,6 +127,73 @@ class Amateur
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Etalage>
+     */
+    public function getétalages(): Collection
+    {
+        return $this->étalages;
+    }
+
+    public function addTalage(Etalage $talage): self
+    {
+        if (!$this->étalages->contains($talage)) {
+            $this->étalages->add($talage);
+            $talage->setAmateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTalage(Etalage $talage): self
+    {
+        if ($this->étalages->removeElement($talage)) {
+            // set the owning side to null (unless already changed)
+            if ($talage->getAmateur() === $this) {
+                $talage->setAmateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Etalage>
+     */
+    public function getEtalages(): Collection
+    {
+        return $this->etalages;
+    }
+
+    public function addEtalage(Etalage $etalage): self
+    {
+        if (!$this->etalages->contains($etalage)) {
+            $this->etalages->add($etalage);
+            $etalage->setAmateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEtalage(Etalage $etalage): self
+    {
+        if ($this->etalages->removeElement($etalage)) {
+            // set the owning side to null (unless already changed)
+            if ($etalage->getAmateur() === $this) {
+                $etalage->setAmateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        
+        return $this-> nom;
+
     }
 
 }

@@ -18,7 +18,7 @@ class Genre
     #[ORM\Column(length: 255)]
     private ?string $intitule = null;
 
-    #[ORM\OneToMany(mappedBy: 'genre', targetEntity: Livre::class, orphanRemoval: true, cascade: ["persist"])]
+    #[ORM\OneToMany(mappedBy: 'genre', targetEntity: Livre::class, cascade: ["persist"])]
     private Collection $livre;
 
     #[ORM\ManyToOne(inversedBy: 'genres')]
@@ -87,4 +87,13 @@ class Genre
 
         return $this;
     }
+
+    public function __toString()
+    {
+        
+        return $this-> intitule;
+
+    }
+
+    
 }

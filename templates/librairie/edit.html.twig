@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de la Jolibrairie
+{% endblock %}
+
+{% block body %}
+	<h1>Modification de la Jolibrairie</h1>
+
+	{{ include('librairie/_form.html.twig', {'button_label': 'Valider'}) }}
+	{{ include('librairie/_delete_form.html.twig') }}
+		<button class="btn-info">
+			<a href="{{ path('livres_list') }}">Modifier le contenu</a>
+		</button>
+		<button class="btn-default">
+			<a href="{{ path('librairies_list') }}">Retour</a>
+		</button>
+	{% endblock %}

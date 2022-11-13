@@ -14,3 +14,6 @@ bootstrap_menu:
         livres:
           label: 'Livres'
           route: 'livres_list'
+        etalage:
+          label: 'Etalages'
+          route: 'app_etalage_index'

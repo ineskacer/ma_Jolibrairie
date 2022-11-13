@@ -9,7 +9,7 @@
         <tr>
             <th>Id</th>
             <th>Titre</th>
-            <th> &nbsp;</th>
+            <th> Actions </th>
         </tr>
     </thead>
     <tbody>
@@ -19,15 +19,20 @@
         <tr>
             <td>{{ livre.Id }}</td>
             <td>{{ livre.titre }}</td>
-            <td><a href="{{ path('livre_show', {'id': livre.id}) }}">consulter</a></td>
+            <td>
+            <button class="w3-btn"><a href="{{ path('livre_show', {'id': livre.id}) }}">Consulter</a></button>
+            <button class="w3-btn"><a href="{{ path('app_livre_edit', {'id': livre.id}) }}">Modifier</a></button>
+            {{ include('livre/_delete_form.html.twig') }}
+            </td>
+            
             
 
         </tr>
     
   {% endfor %} 
   </tbody>
+  {#<button class="btn-w3"><a href="{{ path('livre_new')}}">Ajouter un nouveau livre</a></button>#}
   </table>
-
-  <a href="{{ path('home') }}">Retour</a>
+  <button class="w3-btn"><a href="{{ path('home') }}">Retour</a></button>
 
 {% endblock %}

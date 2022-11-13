@@ -10,7 +10,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Intitulé</th>
-				<th> &nbsp;</th>
+				<th> Actions </th>
 			</tr>
 		</thead>
         <tbody>
@@ -20,11 +20,13 @@
 				<tr>
 					<td>{{ genre.Id }}</td>
 					<td>{{ genre.intitule }}</td>
-					<td><a href="{{ path('genre_show', {'id': genre.id}) }}">consulter</a></td>
+					<td><button class="btn-info"><a href="{{ path('genre_show', {'id': genre.id}) }}">Consulter</a></button>
+					            <button class="btn-warning"><a href="{{ path('app_genre_edit', {'id': genre.id}) }}">Modifier</a></button>
+            {{ include('genre/_delete_form.html.twig') }}</td>
 				</tr>
 			
 		{% endfor %}
         </tbody>
 	</table>
-	<a href="{{ path('home') }}">Retour</a>
+	<button class="w3-btn"><a href="{{ path('home') }}">Retour</a></button>
 {% endblock %}

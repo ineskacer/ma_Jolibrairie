@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel Etalage {% endblock %}
+
+{% block body %}
+    <h1>Création d'un nouvel étalage</h1>
+
+    {{ include('etalage/_form.html.twig') }}
+
+    <button class="w3-btn"><a href="{{ path('app_etalage_index') }}">Retour</a></button>
+{% endblock %}

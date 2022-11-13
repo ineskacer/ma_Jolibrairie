@@ -24,7 +24,12 @@ class AppFixtures extends Fixture
 
      private static function amateursDataGenerator()
      {
-        yield["Nesi", "Etudiante"];
+        yield["Inès", "Etudiante"];
+        yield["Eden", "J'aime particulièrement les livres de vampires"];
+        yield["Jasmine", "Lycéene"];
+        yield["Ferroudja", "Je m'amuse à deviner la fin des thillers'"];
+        yield["Arezki", "Je lis de tout !"];
+        yield["Adam", "J'aime les livres sur l'océan et ceux sur le Moyen-Age"];
      }
 
     /**
@@ -33,8 +38,8 @@ class AppFixtures extends Fixture
      */
     private static function librairiesDataGenerator()
     {
-        yield ["Mes livres préférés", "Nesi", "Etudiante"];
-        yield ["A lire un jour de pluie", "Nesi", "Etudiante"];
+        yield ["Mes livres préférés", "Inès", "Etudiante"];
+        yield ["A lire un jour de pluie", "Inès", "Etudiante"];
 
     }
 
@@ -44,9 +49,9 @@ class AppFixtures extends Fixture
      */
     private static function genresDataGenerator()
     {
-        yield ["Fantastique", "Nesi", "Etudiante"];
-        yield ["Réalisme", "Nesi", "Etudiante"];
-        yield ["Littérature pour enfants", "Nesi", "Etudiante"];
+        yield ["Fantastique", "Inès", "Etudiante"];
+        yield ["Réalisme", "Inès", "Etudiante"];
+        yield ["Littérature pour enfants", "Inès", "Etudiante"];
 
     }
 

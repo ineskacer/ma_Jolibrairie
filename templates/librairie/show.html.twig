@@ -19,14 +19,21 @@
 				<td>{{ librairie.description }}</td>
 			</tr>
 			<tr>
-			<th> Amateur </th>
-			<td> <a href="{{ path('amateur_show', {'id': librairie.amateur.id}) }}">{{librairie.amateur.nom}}</a> </td>
+				<th>
+					Amateur
+				</th>
+				<td>
+					<a href="{{ path('amateur_show', {'id': librairie.amateur.id}) }}">{{librairie.amateur.nom}}</a>
+				</td>
 			</tr>
 			<tr>
 				<table class="table">
 					<thead></thead>
 					<tr>
 						<th>Livres</th>
+						<td>
+							<a href="{{ path('livre_new', {'id': librairie.id}) }}">Ajouter un nouveau livre</a>
+						</td>
 					</tr>
 				</thead>
 			</tr>
@@ -36,21 +43,20 @@
 				<th>
 					Titre
 				</th>
-				<th>
-					Action
-				</th>
 			</tr>
 			{% for livre in librairie.livres %}
 
 				<tr>
 					<td>
-						{{livre.titre}}</td>
-					<td>
-						<a href="{{ path('livre_show', {'id': livre.id}) }}">consulter</a>
+
+
+						<a href="{{ path('livre_show', {'id' : livre.id}) }}">{{ livre }}</a>
+
+
 					</td>
 				</tr>
 
 			{% endfor %}
 		</tbody>
 	</table>
-</tr></tbody></table><a href="javascript:history.go(-1)">Retour</a>{% endblock %}
+</tr></tbody></table><button class="w3-btn"><a href="javascript:history.go(-1)">Retour</a></button>{% endblock %}
