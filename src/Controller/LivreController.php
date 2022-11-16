@@ -18,16 +18,18 @@ class LivreController extends AbstractController
     /**
      * Show livres from librairie
      * 
-     * @Route("/livres", name="livres_list", requirements={"id"="\d+"})
-     *    note that the id must be an integer, above
+     * @Route("/livres", name="livres_list", methods={"GET"})
      *    
      */
-
-
-    public function list(ManagerRegistry $doctrine)
+    public function list(LivreRepository $livreRepository): Response
     {
-        $entityManager = $doctrine->getManager();
-        $livres = $entityManager->getRepository(Livre::class)->findAll();
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $livres = $livreRepository->findAll();
+        } else {
+            $amateur = $this->getUser()->getAmateur();
+            $livres = $livreRepository->findAmateurLivres($amateur);
+        }
 
         dump($livres);
 
@@ -36,6 +38,11 @@ class LivreController extends AbstractController
             ['livres' => $livres]
         );
     }
+
+
+
+
+
 
     /**
      * Show a livre

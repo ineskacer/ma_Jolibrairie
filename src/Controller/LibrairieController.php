@@ -23,20 +23,24 @@ class LibrairieController extends AbstractController
     {
         return $this->render(
             'index.html.twig',
-            ['welcome' => "J'espère que vous y trouverez votre nouveau bouquin préféré !"]
+            ['welcome' => "J'espère que vous y trouverez votre nouveau bouquin préféré !"
+            ]
         );
     }
+
 
     /**
      * Lists all librairies entities.
      * @Route("/librairies", name="librairies_list", methods="GET")
      */
-    public function list(ManagerRegistry $doctrine)
+    public function list(LibrairieRepository $librairieRepository): Response
     {
-        $entityManager = $doctrine->getManager();
-        $librairies = $entityManager->getRepository(Librairie::class)->findAll();
-
-        dump($librairies);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $librairies = $librairieRepository->findAll();
+        } else {
+            $amateur = $this->getUser()->getAmateur();
+            $librairies = $amateur->getLibrairie();
+        }
 
         return $this->render(
             'librairie/index.html.twig',

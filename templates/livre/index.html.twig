@@ -7,7 +7,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Titre</th>
             <th> Actions </th>
         </tr>
@@ -17,7 +16,6 @@
       
 
         <tr>
-            <td>{{ livre.Id }}</td>
             <td>{{ livre.titre }}</td>
             <td>
             <button class="w3-btn"><a href="{{ path('livre_show', {'id': livre.id}) }}">Consulter</a></button>

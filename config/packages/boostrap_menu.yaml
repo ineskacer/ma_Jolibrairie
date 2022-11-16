@@ -1,19 +1,30 @@
 bootstrap_menu:
   menus:
-    main:
+    main: 
       items:
         amateurs:
           label: 'Amateurs'
           route: 'amateurs_list'
         librairies:
-          label: 'Jolibrairies'
+          label: 'Mes jolibrairies'
           route: 'librairies_list'
         genres:
           label: 'Genres'
           route: 'genres_list'
         livres:
-          label: 'Livres'
+          label: 'Mes livres'
           route: 'livres_list'
         etalage:
-          label: 'Etalages'
+          label: 'Mes étalages'
           route: 'app_etalage_index'
+    anonymousaccount: 
+      items: 
+        login: 
+          label: 'Connexion'
+          route: 'app_login'
+    account: 
+      items:
+        logout:
+          label: 'Déconnexion'
+          route: 'app_logout'
+          roles: [ 'ROLE_USER']

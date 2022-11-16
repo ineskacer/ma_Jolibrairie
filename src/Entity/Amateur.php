@@ -31,6 +31,8 @@ class Amateur
     #[ORM\OneToMany(mappedBy: 'amateur', targetEntity: Etalage::class, cascade: ["persist"])]
     private Collection $etalages;
 
+    #[ORM\OneToOne(inversedBy: 'amateur', cascade: ['persist', 'remove'])]
+    private ?User $user = null;
 
     public function __construct()
     {
@@ -165,5 +167,18 @@ class Amateur
         return $this-> nom;
 
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
 
 }

@@ -8,7 +8,6 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Id</th>
 				<th>Intitulé</th>
 				<th> Actions </th>
 			</tr>
@@ -18,10 +17,9 @@
 			
 
 				<tr>
-					<td>{{ genre.Id }}</td>
 					<td>{{ genre.intitule }}</td>
-					<td><button class="btn-info"><a href="{{ path('genre_show', {'id': genre.id}) }}">Consulter</a></button>
-					            <button class="btn-warning"><a href="{{ path('app_genre_edit', {'id': genre.id}) }}">Modifier</a></button>
+					<td><button class="btn-default"><a href="{{ path('genre_show', {'id': genre.id}) }}">Consulter</a></button>
+					            <button class="btn-default"><a href="{{ path('app_genre_edit', {'id': genre.id}) }}">Modifier</a></button>
             {{ include('genre/_delete_form.html.twig') }}</td>
 				</tr>
 			

@@ -7,5 +7,6 @@
 
     {{ include('genre/_form.html.twig') }}
 
-    <button class="w3-btn"><a href="{{ path('genres_list') }}">Retour</a></button>
+    <button class="w3-btn"><a href="{{ path('genres_list') }}">Voir tous les genres</a></button>
+    <button class="w3-btn"><a href="javascript:history.go(-1)">Retour</a></button>
 {% endblock %}

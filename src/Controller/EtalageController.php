@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Livre;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Entity\User;
 
 #[Route('/etalage')]
 class EtalageController extends AbstractController
@@ -19,12 +20,32 @@ class EtalageController extends AbstractController
     #[Route('/', name: 'app_etalage_index', methods: ['GET'])]
     public function index(EtalageRepository $etalageRepository): Response
     {
+        $privateEtalage = array();
+        $publicEtalage = array();
+        $user = $this->getUser();
+        if ($user) {
+            $amateur = $user->getAmateur();
+            $privateEtalage = $etalageRepository->findBy(
+                [
+                    'amateur' => $amateur,
+                    'publie'  => false
+                ]
+            );
+        }
+        $publicEtalage = $etalageRepository->findBy(
+            [
+                'publie' => true
+            ]
+        );
+
+        $etalage = array_merge($privateEtalage, $publicEtalage);
+
         return $this->render('etalage/index.html.twig', [
-            'etalages' => $etalageRepository->findBy(['publie'=> true]),
+            'etalages' => $etalage
         ]);
     }
 
-    #[Route('etalage/new/{id}', name: 'app_etalage_new', methods: ['GET', 'POST'])]
+    #[Route('/new/{id}', name: 'app_etalage_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EtalageRepository $etalageRepository, Amateur $amateur): Response
     {
         $etalage = new Etalage();
@@ -87,7 +108,7 @@ class EtalageController extends AbstractController
      * @ParamConverter("etalage", options={"id" = "etalage_id"})
      * @ParamConverter("livre", options={"id" = "livre_id"})
      */
-    public function livreShow(Etalage $etalage,Livre $livre): Response
+    public function livreShow(Etalage $etalage, Livre $livre): Response
     {
         if (!$etalage->getLivres()->contains($livre)) {
             throw $this->createNotFoundException("Ce livre ne se trouve pas dans cet étalage !");

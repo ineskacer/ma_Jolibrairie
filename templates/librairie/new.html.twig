@@ -6,7 +6,7 @@
     <h1> Création d'une Jolibrairie </h1>
 
     {{ include('librairie/_form.html.twig') }}
+    <button class="w3-btn"><a href="{{ path('librairies_list') }}">Voir mes Jolibrairies</a></button>
+    <button class="w3-btn"><a href="javascript:history.go(-1)">Retour</a></button>
 
-    <button class="w3-btn"><a href="{{ path('livre_new') }}">Ajouter des livres</a></button>
-    <button class="w3-btn"><a href="{{ path('librairies_list') }}">Retour à l'index des Jolibrairies</a></button>
 {% endblock %}

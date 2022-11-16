@@ -75,18 +75,22 @@
 - Ajout de crud pour Genre
 - Ajout de la relation Amatateur -> Librairie -> Livre pour les ajouts
 
+`15/10`
+- Projet fini
+
+
 ## A faire
 
-
+- Finaliser
 
 ## Problèmes rencontrés
 
-- Je n'arrive pas à ajouter plusieurs livres dans ma galerie
+- La partie admin est deguelasse, comment gérer ça ?
 
 ## Notes à moi-même
 
-- Je ne peux pas ajouter des livres dans ma librairie car mes livres sont en relations ManyToOne avec mes librairies donc il faut que je créer un livre pour l'ajouter.
-- Pour ajouter des livres dans une librairie, ça se fait lors de la création du livre. 
+- Je n'ai pas de route app_register car je n'ai pas de formulaire d'inscription. Etant donné que c'est optionnel car considéré par intéressants pour mon apprentissage par les professeurs, je saute cette étape. 
+- Attention ! Il faut ajouter le genre avant le livre sinon problème au niveau de l'affichage d'un livre et je dois gérer le truc dans le backoffice. 
 
 ## Commandes pratiques
 

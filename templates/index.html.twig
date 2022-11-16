@@ -1,10 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue dans mon monde!{% endblock %}
+{% block title %}Bienvenue dans mon monde!
+{% endblock %}
 
 {% block body %}
-<h1>Bienvenue dans mon monde!</h1>
+	<h1>Bienvenue dans mon monde!</h1>
+     
+	<p>{{ welcome }}</p>
 
-    <p>{{ welcome }}</p>
 
-{% endblock %} {# body #}
+	{% if is_granted('ROLE_ADMIN') %}
+		<h5>
+			<button class="btn-light">
+				<a href="{{ path('admin') }}">ADMINISTRATEUR</a>
+			</button>
+		</h5>
+	{% endif %} 
+
+	
+
+{% endblock %}
+{# body #}
