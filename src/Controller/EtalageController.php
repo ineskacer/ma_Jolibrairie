@@ -113,10 +113,6 @@ class EtalageController extends AbstractController
         if (!$etalage->getLivres()->contains($livre)) {
             throw $this->createNotFoundException("Ce livre ne se trouve pas dans cet étalage !");
         }
-
-        if (!$etalage->isPublie()) {
-            throw $this->createAccessDeniedException(" Vous ne pouvez pas accéder à cette ressource :( !");
-        }
         return $this->render('etalage/livre_show.html.twig', [
             'livre' => $livre,
             'etalage' => $etalage

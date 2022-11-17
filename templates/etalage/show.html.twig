@@ -29,9 +29,9 @@
 	</ul>
 
 
-	<a href="{{ path('app_etalage_index') }}">Retour</a>
+	<button class="btn-default"><a href="{{ path('app_etalage_index') }}">Retour</a></button>
 
-	<a href="{{ path('app_etalage_edit', {'id': etalage.id}) }}">Modifier</a>
+	<button class="btn-default"><a href="{{ path('app_etalage_edit', {'id': etalage.id}) }}">Modifier</a></button>
 
 	{{ include('etalage/_delete_form.html.twig') }}
 {% endblock %}

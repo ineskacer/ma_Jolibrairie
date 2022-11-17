@@ -4,7 +4,9 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Genres</h1>
+	<h1>Index des genres</h1>
+	<button class="btn-default"> <a href="{{ path('genre_new') }}">Ajouter un genre</a></button>
+	<p><i> NB : quand vous ajoutez un genre, celui-ci sera utilisable par tous les membres du site ! </i></p>
 	<table class="table">
 		<thead>
 			<tr>

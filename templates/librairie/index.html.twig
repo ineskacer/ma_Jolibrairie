@@ -8,6 +8,7 @@
     <thead>
         <tr>
             <th>Description</th>
+            <th>Amateur</th>
             <th> Actions </th>
         </tr>
     </thead>
@@ -17,6 +18,7 @@
 
         <tr>
             <td>{{ librairie.description }}</td>
+            <td>{{ librairie.amateur }}</td>
             <td><button class="btn-default"><a href="{{ path('librairie_show', {'id': librairie.id}) }}">Consulter</a></button>
             <button class="btn-default"><a href="{{ path('app_librairie_edit', {'id': librairie.id}) }}">Modifier</a></button>
             {{ include('librairie/_delete_form.html.twig') }}
@@ -26,7 +28,6 @@
     
   {% endfor %} 
   </tbody>
-  {#<button class="btn-default"><a href="{{ path('librairie_new')}}">Ajouter une Jolibrairie</a></button>#}
   </table>
 <button class="btn-default"><a href="{{ path('home') }}">Retour</a></button>
 {% endblock %}

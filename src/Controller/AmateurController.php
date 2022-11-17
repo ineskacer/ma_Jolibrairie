@@ -17,15 +17,17 @@ class AmateurController extends AbstractController
      */
     public function list(ManagerRegistry $doctrine)
     {
-        $entityManager= $doctrine->getManager();
+        $entityManager = $doctrine->getManager();
         $amateurs = $entityManager->getRepository(Amateur::class)->findAll();
-    
+
         dump($amateurs);
-    
-        return $this->render('amateur/index.html.twig',
-            [ 'amateurs' => $amateurs ]
-            );
-    }  
+
+        return $this->render(
+            'amateur/index.html.twig',
+            ['amateurs' => $amateurs]
+        );
+    }
+
 
     /**
      * Show an amateur
@@ -38,9 +40,22 @@ class AmateurController extends AbstractController
 
     public function show(Amateur $amateur): Response
     {
-        return $this->render('amateur/show.html.twig',
-        [ 'amateur' => $amateur ]
-        );
+        $current_amateur = $this->getUser()->getAmateur();
+        if ($amateur == $current_amateur) {
+            return $this->render(
+                'amateur/show.html.twig',
+                ['amateur' => $amateur]
+            );
+        } elseif ($this->isGranted('ROLE_ADMIN')) {
+            return $this->render(
+                'amateur/admin.html.twig',
+                ['amateur' => $amateur]
+            );
+        } else {
+            return $this->render(
+                'amateur/profil.html.twig',
+                ['amateur' => $amateur]
+            );
+        }
     }
-
 }

@@ -8,6 +8,7 @@
     <thead>
         <tr>
             <th>Titre</th>
+            <th>Amateur</th>
             <th> Actions </th>
         </tr>
     </thead>
@@ -17,6 +18,7 @@
 
         <tr>
             <td>{{ livre.titre }}</td>
+            <td> {{ livre.librairie.amateur }}</td>
             <td>
             <button class="w3-btn"><a href="{{ path('livre_show', {'id': livre.id}) }}">Consulter</a></button>
             <button class="w3-btn"><a href="{{ path('app_livre_edit', {'id': livre.id}) }}">Modifier</a></button>

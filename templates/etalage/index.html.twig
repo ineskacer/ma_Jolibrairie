@@ -4,11 +4,14 @@
 
 {% block body %}
     <h1>Etalage index</h1>
+    <h4>Vous pouvez consulter les <b>étalages publiés</b> de tous les amateurs</h4>
+    <p><i>NB: Vos étalages non publiés ne sont accessibles que par vous</i>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Description</th>
+                <th>Amateur</th>
                 <th>Publié</th>
                 <th>Actions</th>
             </tr>
@@ -17,6 +20,7 @@
         {% for etalage in etalages %}
             <tr>
                 <td>{{ etalage.description }}</td>
+                <td>{{ etalage.amateur }}</td>
                 <td>{{ etalage.publie ? 'Oui' : 'Non' }}</td>
                 <td>
                     <a href="{{ path('app_etalage_show', {'id': etalage.id}) }}">Consulter</a>

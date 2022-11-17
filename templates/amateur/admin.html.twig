@@ -21,9 +21,6 @@
 					<thead></thead>
 					<tr>
 						<th>Jolibraires</th>
-						<td>
-							<a href="{{ path('librairie_new', {'id': amateur.id}) }}">Ajouter une nouvelle Jolibrairie</a>
-						</td>
 					</tr>
 				</thead>
 			</tr>
@@ -45,18 +42,14 @@
 	</thead>
 	<tr>
 		<th>Etalages</th>
-		<td>
-			<a href="{{ path('app_etalage_new', {'id': amateur.id}) }}">Ajouter un nouvel étalage</a>
-		</td>
 	</tr>
 </tbody></thead></tr></tbody><tbody><tr><th>
 Description</th>
-<th> Publié </th>
-</tr>{% for etalage in amateur.etalages %}<tr>
+<th> Publié </th> </tr>{% for etalage in amateur.etalages %}<tr>
 <td>
 	<a href="{{ path('app_etalage_show', {'id': etalage.id}) }}">{{ etalage }}</a>
 </td>
 <td>
-{{ etalage.publie ? 'Oui' : 'Non' }}
+{{ etalage.publie ? 'Oui' : 'Non'}}
 </td>
 </tr>{% endfor %}</tbody></tbody></table></tbody></table></tr></tbody> </table> <button class="w3-btn"><a href="{{ path('amateurs_list') }}">Retour</a> </button>{% endblock %}

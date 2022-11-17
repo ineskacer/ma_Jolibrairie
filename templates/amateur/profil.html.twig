@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>
+		{{ amateur.nom }}
+	</h1>
+
+	{% dump amateur.etalages %}
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Description</th>
+				<td>{{ amateur.description }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ amateur.user.email }}</td>
+			</tr>
+		</tbody>
+	</th>
+	<table class="table"></thead>
+</tr></tbody><thead></thead>
+<tr>
+<th>Etalages</th></tr>
+</tbody></thead>
+</tr>
+</tbody><tbody>
+<tr><th>Description</th></tr>
+{% for etalage in amateur.etalages %}
+{% if etalage.publie == true %}
+<tr><td>
+<a href="{{ path('app_etalage_show', {'id': etalage.id}) }}">{{ etalage }}</a></td></tr>
+{% endif %}{% endfor %}</tbody></tbody></table></tbody></table></tr> </tbody></table><button class="w3-btn"> <a href="{{ path('amateurs_list') }}">Retour</a></button>{% endblock %}

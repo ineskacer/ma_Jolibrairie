@@ -1,10 +1,5 @@
 # Projet PHP **ma_Jolibrairie**
 
-## Apprentissage PHP
-
-- J'ai fais le TP7
-- Je vais sauter le TP8 pour le moment
-
 ## Suivi du projet
 
 `30/10` : 
@@ -81,11 +76,8 @@
 
 ## A faire
 
-- Finaliser
-
-## Problèmes rencontrés
-
-- La partie admin est deguelasse, comment gérer ça ?
+- Remplir la base de données
+- Déposer le site
 
 ## Notes à moi-même
 
