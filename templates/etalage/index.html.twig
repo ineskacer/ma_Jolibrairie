@@ -24,7 +24,6 @@
                 <td>{{ etalage.publie ? 'Oui' : 'Non' }}</td>
                 <td>
                     <a href="{{ path('app_etalage_show', {'id': etalage.id}) }}">Consulter</a>
-                    <a href="{{ path('app_etalage_edit', {'id': etalage.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

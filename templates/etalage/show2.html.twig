@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etalage
+{% endblock %}
+
+{% block body %}
+	<h1>Etalage</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Description</th>
+				<td>{{ etalage.description }}</td>
+			</tr>
+			<tr>
+				<th>Publié</th>
+				<td>{{ etalage.publie ? 'Oui' : 'Non' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2>Livres</h2>
+	<ul>
+		{% for livre in etalage.livres %}
+			<li>
+				<a href="{{ path('app_etalage_livre_show', {'etalage_id': etalage.id, 'livre_id' : livre.id}) }}">{{ livre }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+
+	<button class="btn-default"><a href="{{ path('app_etalage_index') }}">Retour</a></button>{% endblock %}

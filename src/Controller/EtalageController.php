@@ -68,10 +68,27 @@ class EtalageController extends AbstractController
 
     #[Route('/{id}', name: 'app_etalage_show', methods: ['GET'])]
     public function show(Etalage $etalage): Response
+
     {
-        return $this->render('etalage/show.html.twig', [
-            'etalage' => $etalage,
-        ]);
+        {   $amateur = $etalage->getAmateur();
+            $current_amateur = $this->getUser()->getAmateur();
+            if ($amateur == $current_amateur) {
+                return $this->render(
+                    'etalage/show.html.twig',
+                    ['etalage' => $etalage]
+                );
+            } elseif ($this->isGranted('ROLE_ADMIN')) {
+                return $this->render(
+                    'etalage/show.html.twig',
+                    ['etalage' => $etalage]
+                );
+            } else {
+                return $this->render(
+                    'etalage/show2.html.twig',
+                    ['etalage' => $etalage]
+                );
+            }
+        }
     }
 
     #[Route('/{id}/edit', name: 'app_etalage_edit', methods: ['GET', 'POST'])]

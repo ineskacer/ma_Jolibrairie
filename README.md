@@ -20,19 +20,32 @@ Comme le nom du projet l'indique, le thème de ce site est les livres.
 
 id : ineskacer@gmail.com / mdp: ines
 
+Possède deux Jolibrairies (inventaires)
+Possède deux étalages (galeries) dont un publié et l'autre non publié.
+
 **USER**
 
 id : arezki@gmail.com / mdp : arezki
 
+Possède une Jolibrairie. (inventaire)
+Possède deux étalages (galerie) dont un publié et l'autre non publié.
+
 id : adam@gmail.com / mdp : adam
+
+Pas de livres/jolibrairie/étalages
 
 id : ferroudja@gmail.com / mdp : ferroudja
 
+Possède trois Jolibrairies (inventaires)
+Possède deux étalages (galerie) dont un publié et l'autre non publie.
+
 id : eden@gmail.com / mdp : eden
+
+Pas de livre/jolibrairie/étalage
 
 id : jasmine@gmail.com / mdp : jasmine
 
-
+Pas de livre/jolibrairie/étalage
 
 ## Mode d'emploi 
 
@@ -58,6 +71,6 @@ id : jasmine@gmail.com / mdp : jasmine
 
 - Via Mes Jolibrairies et Mes livres, le USER voir l'index de ses propres Jolibrairies et de ses propres livres. 
 
-- Via Index étalages, le USER peut observer ses propres étalages publiés ou non et les étalages publiés des autres USER. 
+- Via Index étalages, le USER peut observer ses propres étalages publiés ou non et les étalages publiés des autres USER. IL peut modifier et supprimer ses étalages, mais peut seulement consulter celui des autres amateurs. Par contre, l'ADMIN peut supprimer/modifier ses étalages ainsi que ceux de tous les amateurs. 
 
 
